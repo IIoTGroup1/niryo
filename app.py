@@ -38,8 +38,11 @@ with st.form(key='ip_input'):
     submit_button = st.form_submit_button("Submit")
     if submit_button:
         if valid_ip(ip_address):
-            st.success(f"Successfully stored IP {ip_address}.")
             st.session_state.ip_address = ip_address
-            st.session_state.robot = Robot.init(ip_address)
+            try:
+                st.session_state.robot = Robot.init(ip_address)
+                st.success(f"Successfully connected to robot with IP {ip_address}.")
+            except Exception as e:
+                st.error(f"Failed to connect to the robot:\n{e}")
         else:
             st.error(f"The IP address {ip_address} is not valid.")
