@@ -40,6 +40,6 @@ with st.form(key='ip_input'):
         if valid_ip(ip_address):
             st.success(f"Successfully stored IP {ip_address}.")
             st.session_state.ip_address = ip_address
-            st.session_state.robot = robot
+            st.session_state.robot = Robot.init(ip_address)
         else:
             st.error(f"The IP address {ip_address} is not valid.")
