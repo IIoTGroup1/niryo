@@ -2,9 +2,9 @@
 ...
 """
 
-from misc import *
 from robot import *
 import streamlit as st
+from functions import *
 
 
 
