@@ -2,8 +2,8 @@
 ...
 """
 
-import pyniryo
-#from pyniryo import *
+#import pyniryo
+from pyniryo import *
 import streamlit as st
 
 
