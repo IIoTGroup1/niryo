@@ -14,6 +14,9 @@ st.set_page_config(
 )
 
 
+if 'robot' not in st.session_state:
+    st.session_state.robot = None
+
 if 'ip_address' not in st.session_state:
     st.session_state.ip_address = None
 
