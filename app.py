@@ -2,8 +2,6 @@
 ...
 """
 
-#import pyniryo
-#from pyniryo import *
 from robot import *
 import streamlit as st
 
