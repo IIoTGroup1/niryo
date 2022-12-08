@@ -43,6 +43,6 @@ with st.form(key='ip_input'):
                 st.session_state.robot = Robot.init(ip_address)
                 st.success(f"Successfully connected to robot with IP {ip_address}.")
             except Exception as e:
-                st.error(f"Failed to connect to the robot:\n{e}")
+                st.error(f"{e}")
         else:
             st.error(f"The IP address {ip_address} is not valid.")
