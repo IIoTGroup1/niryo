@@ -1,7 +1,7 @@
 """
 ...
 """
-from pyniryo import *
+import pyniryo
 
 
 
@@ -11,4 +11,4 @@ class Robot:
     """
     Initializes the robot with the given IP address.
     """
-    return NiryoRobot(ip_address)
+    return pyniryo.api.tcp_client.NiryoRobot(ip_address)
