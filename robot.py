@@ -5,8 +5,8 @@ from pyniryo import *
 
 
 
-def init(ip_address: str) -> NiryoRobot:
+def init(ip_address: str):
   """
   Initializes the robot with the given IP address.
   """
-  pass
+  return NiryoRobot(ip_address)
