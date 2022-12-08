@@ -1,5 +1,5 @@
 from enum import Enum, unique
-import cv2
+from cv2 import cv2
 
 # -- Text Display
 RED = (0, 0, 255)
