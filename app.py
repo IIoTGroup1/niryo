@@ -3,7 +3,7 @@
 """
 
 #import pyniryo
-from pyniryo import *
+from .pyniryo import *
 import streamlit as st
 
 
