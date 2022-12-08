@@ -2,6 +2,7 @@
 ...
 """
 
+from misc import *
 from robot import *
 import streamlit as st
 
@@ -36,5 +37,9 @@ with st.form(key='ip_input'):
     ip_address = st.text_input("IP Address")
     submit_button = st.form_submit_button("Submit")
     if submit_button:
-        st.success(f"Successfully stored IP {ip_address}.")
-        st.session_state.ip_address = ip_address
+        if valid_ip(ip_address):
+            st.success(f"Successfully stored IP {ip_address}.")
+            st.session_state.ip_address = ip_address
+            st.session_state.robot = robot
+        else:
+            st.error(f"The IP address {ip_address} is not valid.")
