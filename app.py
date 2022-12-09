@@ -1,6 +1,7 @@
 """
 ...
 """
+import asyncio
 import streamlit as st
 from robot import Robot
 from util import valid_ip
@@ -15,9 +16,18 @@ st.set_page_config(
 if 'robot' not in st.session_state:
     st.session_state.robot = None
 
+if 'counter' not in st.session_state:
+    st.session_state.counter = 0
+
 if 'ip_address' not in st.session_state:
     st.session_state.ip_address = None
 
+
+async def update(st_empty):
+    while True:
+        st.session_state.counter += 1
+        # do stuff
+        await asyncio.sleep(1)
 
 
 # ----------------------------------------------
