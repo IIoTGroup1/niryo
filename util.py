@@ -21,4 +21,4 @@ def get_datetime() -> str:
     Returns the current date & time.
     """
     now = datetime.datetime.now()
-    return now.strftime("%m-%d-%Y %H:%M:%S")
+    return now.strftime("%m-%d-%Y  %I:%M:%S %p")
