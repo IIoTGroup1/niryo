@@ -28,10 +28,11 @@ if 'ip_address' not in st.session_state:
 async def update(st_empty):
     while True:
         st.session_state.counter += 1
-        c = str(st.session_state.counter)
+        current_datetime = get_datetime()
+        #c = str(st.session_state.counter)
         # do stuff
         #st_empty.markdown(f"<h3 style='position: fixed; left: 0; bottom: 0; width: 100%; text-align: center; color: #fafafa;'>{c}</h3>", unsafe_allow_html=True)
-        st_empty.markdown(f"<h3 style='position: fixed; left: 0; bottom: 0; width: 100%; text-align: center; color: #fafafa;'>{get_datetime()}</h3>", unsafe_allow_html=True)
+        st_empty.markdown(f"<h3 style='position: fixed; left: 0; bottom: 0; width: 100%; text-align: center; color: #fafafa;'>{current_datetime}</h3>", unsafe_allow_html=True)
         await asyncio.sleep(1)
 
 
