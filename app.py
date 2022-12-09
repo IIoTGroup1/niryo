@@ -108,6 +108,7 @@ st.markdown("##")
 
 st.markdown("## Controls")
 st.markdown("---")
+calibrateButton = st.button("Calibrate", key=None, help=None, on_click=st.session_state.robot.calibrate_auto())
 homeButton = st.button("Go To Home Position", key=None, help=None, on_click=go_home)
 
 st.markdown("##")
