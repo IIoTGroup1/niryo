@@ -4,7 +4,8 @@
 import asyncio
 import streamlit as st
 from robot import Robot
-from util import valid_ip, footer, update_footer
+from util import valid_ip
+# from util import valid_ip, footer, update_footer
 
 
 st.set_page_config(
@@ -12,7 +13,7 @@ st.set_page_config(
     layout="centered",
     page_icon=":computer:"
 )
-st.markdown(footer,unsafe_allow_html=True)
+#st.markdown(footer,unsafe_allow_html=True)
 
 if 'robot' not in st.session_state:
     st.session_state.robot = None
@@ -24,11 +25,12 @@ if 'ip_address' not in st.session_state:
     st.session_state.ip_address = None
 
 
-async def update():
+async def update(st_empty):
     while True:
         st.session_state.counter += 1
         # do stuff
-        st.markdown(update_footer(str(st.session_state.counter)), unsafe_allow_html=True)
+        st_empty.write(str(st.session_state.counter))
+        #st.markdown(update_footer(str(st.session_state.counter)), unsafe_allow_html=True)
         await asyncio.sleep(1)
 
 
@@ -61,4 +63,19 @@ st.markdown("---")
 st.markdown("##")
 
 
-asyncio.run(update())
+
+
+
+
+
+st.markdown("##")
+st.markdown("---")
+# ----------------------------------------------    FOOTER
+st.markdown("##")
+st.markdown("##")
+st.markdown("##")
+st.markdown("##")
+
+footer = st.empty()
+
+asyncio.run(update(footer))
