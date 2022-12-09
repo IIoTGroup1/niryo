@@ -117,7 +117,7 @@ with st.form(key='joint_pos_input'):
     with col4: joint4 = st.number_input("Joint 4", min_value=0, max_value=360, step=1)
     with col5: joint5 = st.number_input("Joint 5", min_value=0, max_value=360, step=1)
     with col6: joint6 = st.number_input("Joint 6", min_value=0, max_value=360, step=1)
-    submit_joint_pos_button = st.form_submit_button("Send Joint Positions")
+    submit_joint_pos_button = st.form_submit_button("Send Joint Angles")
     if submit_joint_pos_button:
         try:
             joint_positions = [rad(joint1),0.0,rad(joint3),rad(joint4),rad(joint5),rad(joint6)]
