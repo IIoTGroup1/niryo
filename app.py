@@ -24,6 +24,19 @@ if 'ip_address' not in st.session_state:
     st.session_state.ip_address = None
 
 
+def go_home():
+    """
+    Returns the robot to home position.
+    """
+    if st.session_state.robot:
+        try:
+            st.session_state.robot.move_to_home_pose()
+            st.success("Home position command sent successfully.")
+        except:
+            st.error("Failed to send home position command.")
+        
+
+
 async def update(st_empty, st_empty2, st_empty3):
     while True:
         st.session_state.counter += 1
@@ -60,6 +73,12 @@ with st.form(key='ip_input'):
         else:
             st.error(f"The IP address {ip_address} is not valid.")
 
+
+st.markdown("##")
+st.markdown("##")
+st.markdown("##")
+
+homeButton = st.button("Home Position", key=None, help=None, on_click=go_home)
 
 st.markdown("##")
 st.markdown("##")
