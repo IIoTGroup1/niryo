@@ -106,7 +106,9 @@ st.markdown("##")
 st.markdown("## Commands")
 st.markdown("---")
 homeButton = st.button("Go To Home Position", key=None, help=None, on_click=go_home)
+
 st.markdown("##")
+
 with st.form(key='joint_pos_input'):
     st.markdown("### Set joint angles (degrees)")
     col1,col3,col4,col5,col6 = st.columns(5)
@@ -122,7 +124,29 @@ with st.form(key='joint_pos_input'):
         try:
             joint_positions = [rad(joint1),0.0,rad(joint3),rad(joint4),rad(joint5),rad(joint6)]
             st.session_state.robot.move_joints(joint_positions)
-            st.success(f"Successfully sent joint angles {str(joint_positions)}.")
+            st.success(f"Successfully sent joint angles  {str(joint_positions)}.")
+        except Exception as e:
+            st.error(f"{e}")
+
+st.markdown("##")
+
+with st.form(key='end_effector_pos'):
+    st.markdown("### Set pose (meters, degrees)")
+    location,angles = st.columns(2)
+    with location:
+        x = st.number_input("x")
+        y = st.number_input("y")
+        z = st.number_input("z")
+    with angles:
+        roll = st.number_input("Roll", min_value=0, max_value=360, step=1)
+        pitch = st.number_input("Pitch", min_value=0, max_value=360, step=1)
+        yaw = st.number_input("Yaw", min_value=0, max_value=360, step=1)
+    submit_pose_button = st.form_submit_button("Send Pose")
+    if submit_pose_button:
+        try:
+            pose = [x,y,z,rad(roll),rad(pitch),rad(yaw)]
+            st.session_state.robot.move_pose(pose)
+            st.success(f"Successfully sent pose  {str(joint_positions)}.")
         except Exception as e:
             st.error(f"{e}")
 
