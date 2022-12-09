@@ -122,7 +122,7 @@ with st.form(key='joint_pos_input'):
         try:
             joint_positions = [rad(joint1),0.0,rad(joint3),rad(joint4),rad(joint5),rad(joint6)]
             st.session_state.robot.move_joints(joint_positions)
-            st.success(f"Successfully sent joint positions {str(joint_positions)}.")
+            st.success(f"Successfully sent joint angles {str(joint_positions)}.")
         except Exception as e:
             st.error(f"{e}")
 
