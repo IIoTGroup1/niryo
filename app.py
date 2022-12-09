@@ -60,7 +60,7 @@ with st.form(key='ip_input'):
 
 
 st.markdown("##")
-st.markdown("---")
+#st.markdown("---")
 st.markdown("##")
 st.markdown("##")
 st.markdown("# Joint position")
