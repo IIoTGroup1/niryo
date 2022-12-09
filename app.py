@@ -4,7 +4,7 @@
 import asyncio
 import streamlit as st
 from robot import Robot
-from util import valid_ip, footer
+from util import valid_ip, footer, update_footer
 
 
 st.set_page_config(
