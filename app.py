@@ -44,6 +44,14 @@ def go_home():
             st.success("Home position command sent successfully.")
         except:
             st.error("Failed to send home position command.")
+         
+def calibrate():
+    if st.session_state.robot:
+        try:
+            st.session_state.robot.calibrate_auto()
+            st.success("Calibration command succeeded.")
+        except:
+            st.error("Calibration command failed.")
         
 
 
@@ -108,7 +116,7 @@ st.markdown("##")
 
 st.markdown("## Controls")
 st.markdown("---")
-calibrateButton = st.button("Calibrate", key=None, help=None, on_click=st.session_state.robot.calibrate_auto())
+calibrateButton = st.button("Calibrate", key=None, help=None, on_click=calibrate)
 homeButton = st.button("Go To Home Position", key=None, help=None, on_click=go_home)
 
 st.markdown("##")
