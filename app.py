@@ -24,11 +24,14 @@ if 'ip_address' not in st.session_state:
     st.session_state.ip_address = None
 
 
-async def update(st_empty):
+async def update(st_empty, st_empty2):
     while True:
         st.session_state.counter += 1
         current_datetime = get_datetime()
         st_empty.markdown(f"<h3 style='position: fixed; left: 0; bottom: 0; width: 100%; text-align: center; color: #fafafa;'>{current_datetime}</h3>", unsafe_allow_html=True)
+        if st.session_state.robot and st.session_state.counter%5 == 0:
+            joints = st.session_state.robot.get_joints()
+            st_empty2.write(str(joints))
         await asyncio.sleep(1)
 
 
@@ -59,18 +62,18 @@ with st.form(key='ip_input'):
 st.markdown("##")
 st.markdown("---")
 st.markdown("##")
-
-
+st.markdown("##")
+st.markdown("# Joint position")
+st.markdown("---")
+st.markdown("##")
+joint_pos = st.empty()
 
 
 
 
 # ----------------------------------------------    FOOTER
-# st.markdown("##")
-# st.markdown("##")
-# st.markdown("##")
 
 
 footer = st.empty()
 
-asyncio.run(update(footer))
+asyncio.run(update(footer, joint_pos))
