@@ -166,6 +166,20 @@ with st.form(key='save_pose'):
     if save_button:
         try:
             st.session_state.robot.save_pose(pose_name, st.session_state.robot.get_pose().to_list())
+#             st.session_state.saved_pose_dict[pose_name] = st.session_state.robot.get_pose().to_list()
+            st.success("Successfully saved pose.")
+        except:
+            st.error("Failed to save pose.")
+    
+st.markdown("##")
+
+with st.form(key='pick_from_pose'):
+    st.markdown("### Pick Object")
+    pose_name = st.text_input("Object's Pose Name")
+    execute_button = st.form_submit_button("Execute")
+    if execute_button:
+        try:
+            st.session_state.robot.pick_from_pose(st.session_state.robot.get_pose_saved(pose_name))
             st.success("Successfully saved pose.")
         except:
             st.error("Failed to save pose.")
