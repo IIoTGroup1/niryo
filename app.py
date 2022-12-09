@@ -12,6 +12,7 @@ st.set_page_config(
     layout="centered",
     page_icon=":computer:"
 )
+st.markdown(footer,unsafe_allow_html=True)
 
 if 'robot' not in st.session_state:
     st.session_state.robot = None
