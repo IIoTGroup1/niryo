@@ -4,6 +4,7 @@
 import asyncio
 import streamlit as st
 from robot import Robot
+from numpy import radians as rad
 from util import valid_ip, get_datetime
 
 
@@ -108,9 +109,10 @@ homeButton = st.button("Go To Home Position", key=None, help=None, on_click=go_h
 st.markdown("##")
 with st.form(key='joint_pos_input'):
     st.markdown("### Set joint positions")
-    col1,col2,col3,col4,col5,col6 = st.columns(6)
+    col1,col3,col4,col5,col6 = st.columns(5)
+#     col1,col2,col3,col4,col5,col6 = st.columns(6)
     with col1: joint1 = st.number_input("Joint 1", min_value=0.0, max_value=3.14)
-    with col2: joint2 = st.number_input("Joint 2", min_value=0.0, max_value=3.14)
+#     with col2: joint2 = st.number_input("Joint 2", min_value=0.0, max_value=3.14)
     with col3: joint3 = st.number_input("Joint 3", min_value=0.0, max_value=3.14)
     with col4: joint4 = st.number_input("Joint 4", min_value=0.0, max_value=3.14)
     with col5: joint5 = st.number_input("Joint 5", min_value=0.0, max_value=3.14)
@@ -118,7 +120,7 @@ with st.form(key='joint_pos_input'):
     submit_joint_pos_button = st.form_submit_button("Send Joint Positions")
     if submit_joint_pos_button:
         try:
-            joint_positions = [joint1,joint2,joint3,joint4,joint5,joint6]
+            joint_positions = [joint1,0.0,joint3,joint4,joint5,joint6]
             st.session_state.robot.move_joints(joint_positions)
             st.success(f"Successfully sent joint positions {str(joint_positions)}.")
         except Exception as e:
