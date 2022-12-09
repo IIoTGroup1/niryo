@@ -25,6 +25,9 @@ if 'counter' not in st.session_state:
 
 if 'ip_address' not in st.session_state:
     st.session_state.ip_address = None
+    
+if 'max_arm_velocity' not in st.session_state:
+    st.session_state.max_arm_velocity = 10
 
 
 def go_home():
@@ -82,6 +85,21 @@ with st.form(key='ip_input'):
 
 st.markdown("##")
 st.markdown("##")
+
+
+
+
+st.markdown("## Parameters")
+st.markdown("---")
+# Max arm velocity control slider
+max_arm_velocity = st.slider("Max Arm Velocity",min_value=1,max_value=100,value=st.session_state.max_arm_velocity,step=1)
+
+
+
+st.markdown("##")
+st.markdown("##")
+
+
 
 
 st.markdown("## Commands")
