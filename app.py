@@ -108,7 +108,7 @@ st.markdown("---")
 homeButton = st.button("Go To Home Position", key=None, help=None, on_click=go_home)
 st.markdown("##")
 with st.form(key='joint_pos_input'):
-    st.markdown("### Set joint positions")
+    st.markdown("### Set joint angles (degrees)")
     col1,col3,col4,col5,col6 = st.columns(5)
 #     col1,col2,col3,col4,col5,col6 = st.columns(6)
     with col1: joint1 = st.number_input("Joint 1", min_value=0, max_value=360, step=1)
