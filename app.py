@@ -87,6 +87,8 @@ current_pose = st.empty()
 # ----------------------------------------------    FOOTER
 
 
+st.markdown("##")
+st.markdown("##")
 footer = st.empty()
 
 asyncio.run(update(footer, joint_pos, current_pose))
