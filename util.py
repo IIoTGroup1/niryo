@@ -18,7 +18,7 @@ def valid_ip(ip_address: str) -> bool:
 
 
 
-footer="""<style>
+footer = """<style>
 a:link , a:visited{
 color: blue;
 background-color: transparent;
