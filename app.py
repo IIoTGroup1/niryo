@@ -5,7 +5,6 @@ import asyncio
 import streamlit as st
 from robot import Robot
 from util import valid_ip, get_datetime
-# from util import valid_ip, footer, update_footer
 
 
 st.set_page_config(
@@ -13,7 +12,7 @@ st.set_page_config(
     layout="centered",
     page_icon=":computer:"
 )
-#st.markdown(footer,unsafe_allow_html=True)
+
 
 if 'robot' not in st.session_state:
     st.session_state.robot = None
@@ -29,9 +28,6 @@ async def update(st_empty):
     while True:
         st.session_state.counter += 1
         current_datetime = get_datetime()
-        #c = str(st.session_state.counter)
-        # do stuff
-        #st_empty.markdown(f"<h3 style='position: fixed; left: 0; bottom: 0; width: 100%; text-align: center; color: #fafafa;'>{c}</h3>", unsafe_allow_html=True)
         st_empty.markdown(f"<h3 style='position: fixed; left: 0; bottom: 0; width: 100%; text-align: center; color: #fafafa;'>{current_datetime}</h3>", unsafe_allow_html=True)
         await asyncio.sleep(1)
 
@@ -70,10 +66,10 @@ st.markdown("##")
 
 
 # ----------------------------------------------    FOOTER
-st.markdown("##")
-st.markdown("##")
-st.markdown("##")
-st.markdown("---")
+# st.markdown("##")
+# st.markdown("##")
+# st.markdown("##")
+
 
 footer = st.empty()
 
