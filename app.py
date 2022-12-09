@@ -6,6 +6,7 @@ import os
 import sys
 import socket
 import streamlit as st
+from functions import valid_ip
 
 
 st.set_page_config(
