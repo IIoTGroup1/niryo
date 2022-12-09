@@ -29,7 +29,9 @@ async def update(st_empty):
     while True:
         st.session_state.counter += 1
         # do stuff
-        st_empty.caption(str(st.session_state.counter))
+        #st_empty.caption(str(st.session_state.counter))
+        #st_empty.caption(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+        st_empty.markdown(f"<h1 style='text-align: center; color: red;'>{str(st.session_state.counter)}</h1>", unsafe_allow_html=True)
         #st.markdown(update_footer(str(st.session_state.counter)), unsafe_allow_html=True)
         await asyncio.sleep(1)
 
