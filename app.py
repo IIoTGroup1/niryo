@@ -111,18 +111,27 @@ st.markdown("##")
 
 with st.form(key='joint_pos_input'):
     st.markdown("### Set joint angles (degrees)")
-    col1,col3,col4,col5,col6 = st.columns(5)
+#     col1,col3,col4,col5,col6 = st.columns(5)
 #     col1,col2,col3,col4,col5,col6 = st.columns(6)
-    with col1: joint1 = st.number_input("Joint 1", min_value=0, max_value=360, step=1)
+    col1,col2 = st.columns(2)
+    with col1:
+        joint1 = st.number_input("Joint 1", min_value=0, max_value=360, step=1)
+        joint2 = st.number_input("Joint 2", min_value=0, max_value=360, step=1)
+        joint3 = st.number_input("Joint 3", min_value=0, max_value=360, step=1)
+    with col2:
+        joint4 = st.number_input("Joint 4", min_value=0, max_value=360, step=1)
+        joint5 = st.number_input("Joint 5", min_value=0, max_value=360, step=1)
+#         joint6 = st.number_input("Joint 6", min_value=0, max_value=360, step=1)
+#     with col1: joint1 = st.number_input("Joint 1", min_value=0, max_value=360, step=1)
 #     with col2: joint2 = st.number_input("Joint 2", min_value=0.0, max_value=3.14)
-    with col3: joint3 = st.number_input("Joint 3", min_value=0, max_value=360, step=1)
-    with col4: joint4 = st.number_input("Joint 4", min_value=0, max_value=360, step=1)
-    with col5: joint5 = st.number_input("Joint 5", min_value=0, max_value=360, step=1)
-    with col6: joint6 = st.number_input("Joint 6", min_value=0, max_value=360, step=1)
+#     with col3: joint3 = st.number_input("Joint 3", min_value=0, max_value=360, step=1)
+#     with col4: joint4 = st.number_input("Joint 4", min_value=0, max_value=360, step=1)
+#     with col5: joint5 = st.number_input("Joint 5", min_value=0, max_value=360, step=1)
+#     with col6: joint6 = st.number_input("Joint 6", min_value=0, max_value=360, step=1)
     submit_joint_pos_button = st.form_submit_button("Send Joint Angles")
     if submit_joint_pos_button:
         try:
-            joint_positions = [rad(joint1),0.0,rad(joint3),rad(joint4),rad(joint5),rad(joint6)]
+            joint_positions = [rad(joint1),rad(joint2),rad(joint3),rad(joint4),rad(joint5),rad(joint6)]
             st.session_state.robot.move_joints(joint_positions)
             st.success(f"Successfully sent joint angles  {str(joint_positions)}.")
         except Exception as e:
