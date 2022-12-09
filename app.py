@@ -42,3 +42,8 @@ with st.form(key='ip_input'):
                 st.error(f"{e}")
         else:
             st.error(f"The IP address {ip_address} is not valid.")
+
+
+st.markdown("##")
+st.markdown("---")
+st.markdown("##")
