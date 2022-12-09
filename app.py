@@ -86,7 +86,7 @@ st.markdown("##")
 
 st.markdown("## Commands")
 st.markdown("---")
-homeButton = st.button("Home Position", key=None, help=None, on_click=go_home)
+homeButton = st.button("Go To Home Position", key=None, help=None, on_click=go_home)
 
 
 st.markdown("##")
