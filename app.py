@@ -29,7 +29,7 @@ async def update(st_empty):
     while True:
         st.session_state.counter += 1
         # do stuff
-        st_empty.write(str(st.session_state.counter))
+        st_empty.caption(str(st.session_state.counter))
         #st.markdown(update_footer(str(st.session_state.counter)), unsafe_allow_html=True)
         await asyncio.sleep(1)
 
