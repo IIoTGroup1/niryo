@@ -120,4 +120,4 @@ st.markdown("##")
 st.markdown("##")
 footer = st.empty()
 
-asyncio.run(update(footer, joint_pos, current_pose))
+#asyncio.run(update(footer, joint_pos, current_pose))
