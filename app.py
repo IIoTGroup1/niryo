@@ -142,7 +142,7 @@ with st.form(key='end_effector_pos'):
         roll = st.number_input("Roll", min_value=0, max_value=360, step=1)
         pitch = st.number_input("Pitch", min_value=0, max_value=360, step=1)
         yaw = st.number_input("Yaw", min_value=0, max_value=360, step=1)
-    linear = st.checkbox("Linear move", value=True)
+    linear = st.checkbox("Linear", value=True, help="Move to specified pose with a linear trajectory.")
     submit_pose_button = st.form_submit_button("Send Pose")
     if submit_pose_button:
         try:
