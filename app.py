@@ -30,6 +30,9 @@ if 'ip_address' not in st.session_state:
 if 'max_arm_velocity' not in st.session_state:
     st.session_state.max_arm_velocity = 10
 
+if 'saved_pose_dict' not in st.session_state:
+    st.session_state.saved_pose_dict = {}
+
 
 def go_home():
     """
@@ -154,6 +157,20 @@ with st.form(key='end_effector_pos'):
         except Exception as e:
             st.error(f"{e}")
 
+st.markdown("##")
+
+with st.form(key='save_pose'):
+    st.markdown("### Save Current Pose")
+    pose_name = st.text_input("Name of pose")
+    save_button = st.form_submit_button("Save")
+    if save_button:
+        try:
+            st.session_state.robot.save_pose(pose_name, st.session_state.robot.get_pose())
+            st.success("Successfully saved pose.")
+        except:
+            st.error("Failed to save pose.")
+        
+            
 
 st.markdown("##")
 st.markdown("##")
