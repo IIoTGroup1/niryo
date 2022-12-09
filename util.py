@@ -21,5 +21,5 @@ def get_datetime() -> str:
     """
     Returns the current date & time.
     """
-    now = datetime.datetime.now(pytz.timezone("central"))
+    now = datetime.datetime.now(pytz.timezone("US/CENTRAL"))
     return now.strftime("%m-%d-%Y  %I:%M:%S %p")
