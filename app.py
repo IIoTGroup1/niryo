@@ -95,18 +95,21 @@ st.markdown("##")
 st.markdown("##")
 
 
-st.markdown("### Joint position")
+st.markdown("## Position Info")
 st.markdown("---")
 st.markdown("##")
-joint_pos = st.empty()
-
-
-st.markdown("##")
-st.markdown("##")
+# joint_pos = st.empty()
+st.markdown("### Current pose:")
+st.markdown("### Joint positions:")
 st.markdown("##")
 
 
-st.markdown("### Current Pose")
+# st.markdown("##")
+# st.markdown("##")
+# st.markdown("##")
+
+
+# st.markdown("### Current Pose")
 st.markdown("---")
 st.markdown("##")
 current_pose = st.empty()
