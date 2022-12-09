@@ -22,7 +22,7 @@ class Robot:
         Initializes the robot with the given IP address.
         """
         robot = api.tcp_client.NiryoRobot(ip_address)
-        robot.calibrate_auto()
+#         robot.calibrate_auto()
         return robot
 
     
