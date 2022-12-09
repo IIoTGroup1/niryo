@@ -24,7 +24,7 @@ if 'ip_address' not in st.session_state:
     st.session_state.ip_address = None
 
 
-async def update(st_empty, st_empty2):
+async def update(st_empty, st_empty2, st_empty3):
     while True:
         st.session_state.counter += 1
         current_datetime = get_datetime()
@@ -32,6 +32,8 @@ async def update(st_empty, st_empty2):
         if st.session_state.robot and st.session_state.counter%5 == 0:
             joints = st.session_state.robot.get_joints()
             st_empty2.write(str(joints))
+            pose = st.session_state.robot.get_pose().to_list()
+            st_empty3.write(str(pose))
         await asyncio.sleep(1)
 
 
@@ -60,14 +62,25 @@ with st.form(key='ip_input'):
 
 
 st.markdown("##")
-#st.markdown("---")
 st.markdown("##")
 st.markdown("##")
+
+
 st.markdown("# Joint position")
 st.markdown("---")
 st.markdown("##")
 joint_pos = st.empty()
 
+
+st.markdown("##")
+st.markdown("##")
+st.markdown("##")
+
+
+st.markdown("# Current Pose")
+st.markdown("---")
+st.markdown("##")
+current_pose = st.empty()
 
 
 
@@ -76,4 +89,4 @@ joint_pos = st.empty()
 
 footer = st.empty()
 
-asyncio.run(update(footer, joint_pos))
+asyncio.run(update(footer, joint_pos, current_pose))
