@@ -73,8 +73,6 @@ st.markdown("---")
 # ----------------------------------------------    FOOTER
 st.markdown("##")
 st.markdown("##")
-st.markdown("##")
-st.markdown("##")
 
 footer = st.empty()
 
