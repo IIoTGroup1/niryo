@@ -30,10 +30,7 @@ async def update(st_empty):
         st.session_state.counter += 1
         c = str(st.session_state.counter)
         # do stuff
-        #st_empty.caption(str(st.session_state.counter))
-        #st_empty.caption(f"<style>{f.read()}</style>", unsafe_allow_html=True)
-        st_empty.markdown(f"<h3 style='position: fixed; left: 0; bottom: 0; width: 100%; text-align: center; color: red;'>{c}</h3>", unsafe_allow_html=True)
-        #st.markdown(update_footer(str(st.session_state.counter)), unsafe_allow_html=True)
+        st_empty.markdown(f"<h3 style='position: fixed; left: 0; bottom: 0; width: 100%; text-align: center; color: #fafafa;'>{c}</h3>", unsafe_allow_html=True)
         await asyncio.sleep(1)
 
 
