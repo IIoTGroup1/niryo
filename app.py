@@ -24,7 +24,7 @@ if 'ip_address' not in st.session_state:
     st.session_state.ip_address = None
 
 
-async def update(st_empty):
+async def update():
     while True:
         st.session_state.counter += 1
         # do stuff
@@ -59,3 +59,6 @@ with st.form(key='ip_input'):
 st.markdown("##")
 st.markdown("---")
 st.markdown("##")
+
+
+asyncio.run(update())
