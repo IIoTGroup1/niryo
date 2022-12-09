@@ -59,7 +59,7 @@ async def update(st_empty, st_empty2, st_empty3):
 # ----------------------------------------------
 
 
-st.markdown("# Robot Dashboard")
+st.markdown("# Dashboard")
 st.markdown("---")
 st.markdown("##")
 
