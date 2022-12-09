@@ -4,7 +4,7 @@
 import asyncio
 import streamlit as st
 from robot import Robot
-from util import valid_ip
+from util import valid_ip, get_datetime
 # from util import valid_ip, footer, update_footer
 
 
@@ -30,7 +30,8 @@ async def update(st_empty):
         st.session_state.counter += 1
         c = str(st.session_state.counter)
         # do stuff
-        st_empty.markdown(f"<h3 style='position: fixed; left: 0; bottom: 0; width: 100%; text-align: center; color: #fafafa;'>{c}</h3>", unsafe_allow_html=True)
+        #st_empty.markdown(f"<h3 style='position: fixed; left: 0; bottom: 0; width: 100%; text-align: center; color: #fafafa;'>{c}</h3>", unsafe_allow_html=True)
+        st_empty.markdown(f"<h3 style='position: fixed; left: 0; bottom: 0; width: 100%; text-align: center; color: #fafafa;'>{get_datetime()}</h3>", unsafe_allow_html=True)
         await asyncio.sleep(1)
 
 
