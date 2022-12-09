@@ -5,13 +5,20 @@ import os
 import sys
 import socket
 import streamlit as st
+from pyniryo import api
 from functions import valid_ip
 
 
 
-# from robot import *
-# import streamlit as st
-# from functions import *
+class Robot:
+  @staticmethod
+  def init(ip_address: str):
+    """
+    Initializes the robot with the given IP address.
+    """
+    return api.tcp_client.NiryoRobot(ip_address)
+
+
 
 
 
