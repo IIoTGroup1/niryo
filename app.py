@@ -3,7 +3,7 @@
 """
 import streamlit as st
 from robot import Robot
-from misc import valid_ip
+from util import valid_ip
 
 
 st.set_page_config(
