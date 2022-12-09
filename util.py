@@ -82,3 +82,4 @@ def update_footer(text: str):
     Updates the footer element with the given text.
     """
     footer = footer.replace("<p></p>", "<p>"+text+"</p>")
+    return footer
