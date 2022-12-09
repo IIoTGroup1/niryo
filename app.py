@@ -66,7 +66,7 @@ st.markdown("##")
 
 with st.form(key='ip_input'):
     ip_address = st.text_input("IP Address")
-    submit_button = st.form_submit_button("Submit")
+    submit_button = st.form_submit_button("Connect")
     if submit_button:
         if valid_ip(ip_address):
             st.session_state.ip_address = ip_address
