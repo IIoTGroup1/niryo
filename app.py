@@ -135,7 +135,7 @@ with st.form(key='joint_pos_input'):
 st.markdown("##")
 
 with st.form(key='end_effector_pos'):
-    st.markdown("### Set pose (meters, degrees)")
+    st.markdown("### Set pose (cm, degrees)")
     location,angles = st.columns(2)
     with location:
         x = st.number_input("x")
@@ -149,7 +149,7 @@ with st.form(key='end_effector_pos'):
     submit_pose_button = st.form_submit_button("Send Pose")
     if submit_pose_button:
         try:
-            pose = [x,y,z,rad(roll),rad(pitch),rad(yaw)]
+            pose = [x/100.0,y/100.0,z/100.0,rad(roll),rad(pitch),rad(yaw)]
             if linear:
                 st.session_state.robot.move_linear_pose(pose)
             else: st.session_state.robot.move_pose(pose)
